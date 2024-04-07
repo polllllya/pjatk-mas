@@ -1,47 +1,85 @@
+using System.Text.Json;
+
 namespace MP1;
 
 public class Recipe
 {
-    private static int counter;
-    public int Id { get; }
     public string Name { get; set; }
     public string Description { get; set; }
     public int PreparationTime { get; set; }
+    public int CookingTime { get; set; }
+    public int TotalTime => PreparationTime + CookingTime; 
     public int CaloriesNumber { get; set; }
     private bool IsApproved { get; set; }
-    public static List<Recipe> Recipes = new();
+    public static List<Recipe> Recipes = new(); 
     
-    public static int NumberOfApproved  
+    public Recipe(string name, string description, int preparationTime, int cookingTime, int caloriesNumber)
     {
-        get
-        {
-            int number = 0;
-            foreach (var recipe in Recipes)
-            {
-                if (recipe.IsApproved)
-                    number++;
-            }
-            return number;
-        }
-    }
-
-    public Recipe(string name, string description, int preparationTime, int caloriesNumber)
-    {
-        Id = ++counter;
         Name = name;
         Description = description;
         PreparationTime = preparationTime;
+        CookingTime = cookingTime;
         CaloriesNumber = caloriesNumber;
         IsApproved = false;
     }
-
-    private void Approve()
-    { 
-        IsApproved = true;
+    
+    public void Verify(bool isApproved)
+    {
+        if (isApproved != IsApproved)
+            IsApproved = isApproved; 
+        
+        Recipes.Add(this);
     }
     
-    private void NotApprove()
-    { 
-        IsApproved = false;
+    public static void RemoveRecipe(Recipe recipe) 
+    {
+        Recipes.Remove(recipe);
     }
+    
+    public static void RemoveRecipe(string name) 
+    {
+        var recipeToRemove = Recipes.Find(recipe => recipe.Name == name);
+        
+        if (recipeToRemove != null)
+        {
+            Recipes.Remove(recipeToRemove);
+        } else
+        {
+            Console.WriteLine("Recipe with the provided name was not found");
+        }
+    }
+    
+    public static void Save(string fileName, List<Recipe> recipes) 
+    {
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true
+        };
+        string jsonString = JsonSerializer.Serialize(recipes, options);
+        File.WriteAllText(Directory.GetCurrentDirectory() + "/recipes.json", jsonString);
+    }
+    
+    public static List<Recipe> Load(string fileName)
+    {
+        string jsonString = File.ReadAllText(fileName);
+        if (jsonString == null)
+        {
+            throw new InvalidOperationException("The read JSON string is null.");
+        }
+
+        return JsonSerializer.Deserialize<List<Recipe>>(jsonString)!;
+    }
+    
+    
+    public override string ToString()
+    {
+        return $"Name: {Name}\n" +
+               $"Description: {Description}" + $"\n" +
+               $"Preparation Time: {PreparationTime} min\n" +
+               $"Cooking Time: {CookingTime} min\n" +
+               $"Total Time: {TotalTime} min\n" +
+               $"Calories Number: {CaloriesNumber} kcal\n" +
+               $"Is Approved: {IsApproved}\n";
+    }
+
 }
