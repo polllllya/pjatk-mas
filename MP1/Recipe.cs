@@ -56,7 +56,7 @@ public class Recipe
             WriteIndented = true
         };
         string jsonString = JsonSerializer.Serialize(recipes, options);
-        File.WriteAllText(Directory.GetCurrentDirectory() + "/recipes.json", jsonString);
+        File.WriteAllText(fileName, jsonString);
     }
     
     public static List<Recipe> Load(string fileName)

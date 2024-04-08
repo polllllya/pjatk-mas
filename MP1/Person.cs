@@ -10,7 +10,17 @@ public abstract class Person
     
     public static List<Person> People = new();
 
-    
+    protected Person(string name, string login, string password)
+    {
+        People.Add(this);
+
+        Name = name;
+        Surname = null;
+        Login = login;
+        Password = password;
+
+        TotalPersonCount++;
+    }
     protected Person(string name, string surname, string login, string password)
     {
         People.Add(this);
