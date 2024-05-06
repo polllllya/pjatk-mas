@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices.JavaScript;
-using MP2;
+﻿using MP2;
 
 var user1 = new User("Pola", "Brahina", "polllly", "12345678P");
 var user2 = new User("Anton", "Reut", "a.black", "987654321A");
@@ -37,7 +36,6 @@ recipe1.AddIngredient(new Ingredient("Baking Powder", 2, "tsp"));
 // Console.WriteLine("\n"+recipe1.GetIngredient("Sugar") + "\n");
 // recipe1.RemoveIngredient("Sugar");
 // recipe1.DisplayIngredients();
-
 
 user2.CreateRecipe("Chocolate Cake", "Delicious and rich chocolate cake", 10, 20, 300);
 

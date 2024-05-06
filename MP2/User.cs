@@ -2,7 +2,7 @@ namespace MP2;
 
 public class User:Person
 {
-    private List<Recipe> _favoriteRecipes = new(); // Zwykła Asocjacja
+    private List<Recipe> _favoriteRecipes = new(); 
     public List<Recipe> CreatedRecipes = new(); 
     
     public User(string name, string surname, string login, string password) : base(name, surname, login, password)
