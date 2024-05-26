@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP2", "MP2\MP2.csproj", "{6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3", "MP3\MP3.csproj", "{1A4F6B62-0920-4750-A203-A4342D3DFA97}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP5", "MP5\MP5.csproj", "{B246F4B7-01DD-4E8F-81B5-E73F2CA3C6B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{1A4F6B62-0920-4750-A203-A4342D3DFA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A4F6B62-0920-4750-A203-A4342D3DFA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A4F6B62-0920-4750-A203-A4342D3DFA97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B246F4B7-01DD-4E8F-81B5-E73F2CA3C6B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B246F4B7-01DD-4E8F-81B5-E73F2CA3C6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B246F4B7-01DD-4E8F-81B5-E73F2CA3C6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B246F4B7-01DD-4E8F-81B5-E73F2CA3C6B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
