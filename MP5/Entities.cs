@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using MP5;
+namespace MP5;
 
 public abstract class Person
 {

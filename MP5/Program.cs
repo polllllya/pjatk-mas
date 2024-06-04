@@ -14,11 +14,14 @@ public class Program
             var user2 = new User("Bob", "Johnson");
             var user3 = new User("Charlie", "Brown");
             var user4 = new User("Diana", "Ross");
+            var user5 = new User("Test", "Test");
+
             
             context.Users.Add(user1);
             context.Users.Add(user2);
             context.Users.Add(user3);
             context.Users.Add(user4);
+            context.Users.Add(user5);
             
             Console.WriteLine("Dodano nowego użytkownika: " + user1.Name);
             Console.WriteLine("Dodano nowego użytkownika: " + user2.Name);
@@ -61,6 +64,7 @@ public class Program
             user2.AddToFavorite(recipe2);
             user2.AddToFavorite(recipe3);
             user3.AddToFavorite(recipe4);
+            user5.AddToFavorite(recipe2);
             
             Console.WriteLine(user2.Name + " dodał do ulubionych przepis: " + recipe1.Name);
             Console.WriteLine(user2.Name + " dodał do ulubionych przepis: " + recipe2.Name);
